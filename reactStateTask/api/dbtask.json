@@ -1,0 +1,92 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "classId": 3,
+      "studentName": "Hayrettin Demirci",
+      "studentDesc": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero neque, laborum quibusdam veniam sunt aut.",
+      "image": "https://images.unsplash.com/photo-1564564244660-5d73c057f2d2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1752&q=80"
+    },
+    {
+      "id": 2,
+      "classId": 2,
+      "studentName": "Hakan Güzelses",
+      "studentDesc": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero neque, laborum quibusdam veniam sunt aut.",
+      "image": "https://images.unsplash.com/photo-1591084728795-1149f32d9866?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80"
+    },
+    {
+      "id": 3,
+      "classId": 2,
+      "studentName": "Mehmet Has",
+      "studentDesc": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero neque, laborum quibusdam veniam sunt aut.",
+      "image": "https://images.unsplash.com/photo-1615109398623-88346a601842?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+    },
+    {
+      "id": 4,
+      "classId": 1,
+      "studentName": "İsmail Yazıcı",
+      "studentDesc": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero neque, laborum quibusdam veniam sunt aut.",
+      "image": "https://images.unsplash.com/photo-1615109398623-88346a601842?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+    },
+    {
+      "id": 5,
+      "classId": 4,
+      "studentName": "Leyla Öz",
+      "studentDesc": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero neque, laborum quibusdam veniam sunt aut.",
+      "image": "https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+    },
+    {
+      "id": 6,
+      "classId": 3,
+      "studentName": "Meryem Türk",
+      "studentDesc": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero neque, laborum quibusdam veniam sunt aut.",
+      "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80"
+    },
+    {
+      "id": 7,
+      "classId": 1,
+      "studentName": "Mahmut Keskin",
+      "studentDesc": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero neque, laborum quibusdam veniam sunt aut.",
+      "image": "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1752&q=80"
+    },
+    {
+      "id": 8,
+      "classId": 1,
+      "studentName": "Pınar Tekin",
+      "studentDesc": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero neque, laborum quibusdam veniam sunt aut.",
+      "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80"
+    },
+    {
+      "id": 9,
+      "classId": 2,
+      "studentName": "Murat Son",
+      "studentDesc": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero neque, laborum quibusdam veniam sunt aut.",
+      "image": "https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1742&q=80"
+    },
+    {
+      "id": 10,
+      "classId": 4,
+      "studentName": "Ayşe Al",
+      "studentDesc": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero neque, laborum quibusdam veniam sunt aut.",
+      "image": "https://images.unsplash.com/photo-1506863530036-1efeddceb993?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1644&q=80"
+    }
+  ],
+  "classes": [
+    {
+      "id": 1,
+      "className": "Sayısal"
+    },
+    {
+      "id": 2,
+      "className": "Sözel"
+    },
+    {
+      "id": 3,
+      "className": "Eşit Ağırlık"
+    },
+    {
+      "id": 4,
+      "className": "Dil"
+    }
+  ]
+}
