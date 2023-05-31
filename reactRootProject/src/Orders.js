@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Table } from 'reactstrap'
 export default class Orders extends Component {
   render() {
-    const { cartItems } = this.props.cartProducts
+    const { cartProducts } = this.props.cartProducts
     const { user } = this.props.user
 
     return (
@@ -17,7 +17,7 @@ export default class Orders extends Component {
             </tr>
           </thead>
           <tbody>
-            {cartItems.map((cartItem, index) => (
+            {this.props.cartProducts.map((cartItem, index) => (
               <tr>
                 <th scope="row" key={cartItem.product.id}>
                   {index + 1}

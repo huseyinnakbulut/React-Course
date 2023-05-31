@@ -16,7 +16,8 @@ import {
 } from 'reactstrap'
 export default class Example extends React.Component {
   render() {
-    const { products } = this.props
+    const { products } = this.props.products
+    const { user } = this.props.user
     //const { productsCount } = this.props.length
     // getproducts = (products) => {
     //   products.map((product) => console.log(product))
@@ -32,7 +33,7 @@ export default class Example extends React.Component {
           </NavbarBrand>
           <Nav className="me-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">Giriş Yap</NavLink>
+              <NavLink href="./Login">Giriş Yap</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="https://github.com/reactstrap/reactstrap">
@@ -41,10 +42,11 @@ export default class Example extends React.Component {
             </NavItem>
             <UncontrolledDropdown nav inNavbar right>
               <DropdownToggle nav caret>
-                Sepet - <b>{products.length}</b>
+                {this.props.user.userName} Sepet -{' '}
+                <b>{this.props.products.length}</b>
               </DropdownToggle>
               <DropdownMenu right>
-                {products.map((product) => (
+                {this.props.products.map((product) => (
                   <DropdownItem key={product.product.id}>
                     {product.product.productName}
                     <Badge color="success">{product.quantity}</Badge>
@@ -59,10 +61,7 @@ export default class Example extends React.Component {
                 <DropdownItem divider />
                 <DropdownItem>
                   {
-                    <Button
-                      color="danger"
-                      //onClick={() => this.props.removeFromCart(product)}
-                    >
+                    <Button color="danger" href="/Orders">
                       Confirm Purchese
                     </Button>
                   }

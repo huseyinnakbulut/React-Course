@@ -3,7 +3,9 @@ import Categories from './Categories'
 import Product from './Product'
 import Navbar from './Navbar'
 import Login from './Login'
+import Orders from './Orders'
 import { Row, Col, Container } from 'reactstrap'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 export default class App extends Component {
   state = {
@@ -38,14 +40,6 @@ export default class App extends Component {
   componentDidMount() {
     this.getProducts()
   }
-  // addToCart = (product) => {
-  //   if (this.state.cartProducts.find((c) => c.product.id == product.id)) {
-  //     product.quantity += 1
-  //   } else {
-  //     product.quantity = 1
-  //     this.state.cartProducts.push(product)
-  //   }
-  // }
 
   addToCart = (product) => {
     let newCart = this.state.cartProducts
@@ -73,10 +67,30 @@ export default class App extends Component {
   render() {
     return (
       <>
-        <Navbar
-          products={this.state.cartProducts}
-          removeFromCart={this.removeFromCart}
-        />
+        <Router>
+          <Navbar
+            products={this.state.cartProducts}
+            removeFromCart={this.removeFromCart}
+            user={this.state.currentUser}
+          />
+          <Routes>
+            <Route path="/" element />
+            <Route
+              path="/Login"
+              element={<Login changeUser={this.changeUser} />}
+            />
+            <Route
+              path="/Orders"
+              element={
+                <Orders
+                  user={this.state.currentUser}
+                  cartProducts={this.state.cartProducts}
+                />
+              }
+            />
+          </Routes>
+        </Router>
+
         <Container>
           <Row>
             <Col sm="4">
@@ -95,7 +109,6 @@ export default class App extends Component {
             </Col>
           </Row>
         </Container>
-        <Login changeUser={this.changeUser} />
       </>
     )
   }
