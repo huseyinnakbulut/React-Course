@@ -21,6 +21,7 @@ export default class Example extends React.Component {
     const { cartItems } = this.props
     const { user } = this.props
     let logLink=null;
+    let adminLink=null;
     if (user.id != 0) {
       logLink = (
         <NavItem>
@@ -37,6 +38,25 @@ export default class Example extends React.Component {
           </NavLink>
         </NavItem>
       );
+    }
+    if(user.userRole=="Admin"){
+      adminLink = (
+        <>
+            <NavItem>
+              <NavLink>
+                <Link to="/CategoryAdd">Category Add</Link>
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink>
+                <Link to="/ProductAdd">Product Add</Link>
+              </NavLink>
+            </NavItem>
+            </>
+      );
+    }
+    else{
+      adminLink=null;
     }
     return (
       <div>
@@ -97,7 +117,9 @@ export default class Example extends React.Component {
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
-            <NavItem>
+            {adminLink}
+
+            {/* <NavItem>
               <NavLink>
                 <Link to="/CategoryAdd">Category Add</Link>
               </NavLink>
@@ -106,7 +128,7 @@ export default class Example extends React.Component {
               <NavLink>
                 <Link to="/ProductAdd">Product Add</Link>
               </NavLink>
-            </NavItem>
+            </NavItem> */}
             {/* <NavItem>
               <Button color="light" outline>
                 Sepet <Badge color="danger">3</Badge>
