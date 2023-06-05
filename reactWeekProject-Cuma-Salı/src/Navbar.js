@@ -19,17 +19,30 @@ import { Link } from 'react-router-dom'
 export default class Example extends React.Component {
   render() {
     const { cartItems } = this.props
-    // const { user } = this.props.user
-    //const { productsCount } = this.props.length
-    // getproducts = (products) => {
-    //   products.map((product) => console.log(product))
-    // }
-
+    const { user } = this.props
+    let logLink=null;
+    if (user.id != 0) {
+      logLink = (
+        <NavItem>
+          <NavLink>
+            <Button onClick={this.props.Logout}>Çıkış Yap</Button>
+          </NavLink>
+        </NavItem>
+      );
+    } else {
+      logLink = (
+        <NavItem>
+          <NavLink>
+            <Link to="/LoginRegister">Giriş Yap</Link>
+          </NavLink>
+        </NavItem>
+      );
+    }
     return (
       <div>
         <Navbar className="my-2" color="dark" dark expand="md">
           <NavbarBrand>
-            <b style={{ padding: 7 }}>Hoşgeldiniz</b>
+            <b style={{ padding: 7 }}>Hoşgeldiniz {user.userName}</b>
           </NavbarBrand>
           <Nav className="me-auto" navbar>
             <NavItem>
@@ -37,19 +50,24 @@ export default class Example extends React.Component {
                 <Link to="/Homepage">Anasayfa</Link>
               </NavLink>
             </NavItem>
-            <NavItem>
+            {/* <NavItem>
               <NavLink>
                 <Link to="/LoginRegister">Giriş Yap</Link>
               </NavLink>
-            </NavItem>
+            </NavItem> */}
+            {logLink}
             <NavItem>
               <NavLink>
                 <Link to="/Cart">Sepet</Link>
               </NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink>
+                <Link to="/Orders">Orders</Link>
+              </NavLink>
+            </NavItem>
             <UncontrolledDropdown nav inNavbar right>
               <DropdownToggle nav caret>
-                {/* {this.props.user.userName}  */}
                 Sepet -<b>{cartItems.length}</b>
               </DropdownToggle>
               <DropdownMenu right>

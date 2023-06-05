@@ -4,13 +4,33 @@
       "id": 1,
       "userMail": "deneme@gmail.com",
       "userPassword": "123",
-      "userName": "Hüseyin Akbulut"
+      "userName": "Hüseyin Akbulut",
+      "userRole": "Admin",
+      "userImage": "https://static.vecteezy.com/system/resources/previews/008/442/086/original/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg"
     },
     {
       "id": 2,
-      "userMail": "deneme2@gmail.com",
+      "userMail": "",
+      "userPassword": "",
+      "userName": "",
+      "userRole": "Customer",
+      "userImage": "blob:http://localhost:3001/d7f490cf-d0e0-4c09-b122-c8b084014463"
+    },
+    {
+      "id": 3,
+      "userMail": "adgadg@adbga",
+      "userPassword": "adgdagfad",
+      "userName": "adgad",
+      "userRole": "Customer",
+      "userImage": "blob:http://localhost:3001/899e4436-ef5d-416f-aea6-c201e962b7d8"
+    },
+    {
+      "id": 4,
+      "userMail": "merhaba@123",
       "userPassword": "123",
-      "userName": "İsmail Yazıcı"
+      "userName": "deneme",
+      "userRole": "Customer",
+      "userImage": "blob:http://localhost:3001/72e98617-4bdf-4a0b-8fbb-66a59aea1029"
     }
   ],
   "products": [
@@ -258,6 +278,13 @@
       "productName": "Son DENEME",
       "image": "ADF",
       "desc": "ADG"
+    },
+    {
+      "id": 37,
+      "categoryId": "1",
+      "productName": "Deneme",
+      "image": "blob:http://localhost:3001/6154014b-20bb-4a06-8095-4a2b575a0ba2",
+      "desc": "deneme"
     }
   ],
   "categories": [

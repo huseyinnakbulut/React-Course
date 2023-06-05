@@ -19,7 +19,6 @@ export default class Login extends Component {
   render() {
     const checkUser = (event) => {
       event.preventDefault()
-      document.getElementById('form').reset()
 
       const mail = event.target.elements.inputEmail.value
       const password = event.target.elements.inputPassword.value
@@ -30,12 +29,13 @@ export default class Login extends Component {
       )
       if (loginUser.length > 0) {
         this.state.loginDurum = dogru
-        //this.props.changeUser(loginUser[0])
+        this.props.changeUser(loginUser[0])
         alertify.success(' Giriş Başarılı', 2)
       } else {
         this.state.loginDurum = hatali
         alertify.error('Giriş Yapılamadı', 2)
       }
+      document.getElementById('form').reset()
     }
     return (
       <>

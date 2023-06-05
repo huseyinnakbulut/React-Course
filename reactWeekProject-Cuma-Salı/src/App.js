@@ -10,11 +10,57 @@ import ProductAdd from './ProductAdd'
 import Cart from './Cart'
 import LoginRegister from './LoginRegister'
 import Login from './Login'
+import Register from './Register'
+import Orders from './Orders'
+
 export default class App extends Component {
   state = {
     products: [],
     categories: [],
     cartItems: [],
+    currentUser: {
+      id: 0,
+      userMail: '',
+      userPassword: '',
+      userName: '',
+      userRole: '',
+      userImage: '',
+    },
+    orders: [],
+    orderid: 1,
+  }
+  Logout=()=>{
+        var tempUser= {
+      id: 0,
+      userMail: '',
+      userPassword: '',
+      userName: '',
+      userRole: '',
+      userImage: '',
+    }
+    this.setState({ currentUser: tempUser })
+
+  }
+  ClearCartItems = () => {
+    this.setState({ cartItems: [] })
+  }
+  addToOrders = (products, user) => {
+    if (user.id != 0) {
+      let newOrders = this.state.orders
+      newOrders.push({
+        products: products,
+        user: user,
+        orderId: this.state.orderid,
+      })
+      this.setState({ orders: newOrders })
+      this.setState({ orderid: this.state.orderid + 1 })
+      alertify.success('Sipariş Oluşturulmuştur', 2)
+    } else {
+      alertify.error('Sipariş Oluşturmak için lütfen üye girişi yapınız')
+    }
+  }
+  changeUser = (user) => {
+    this.setState({ currentUser: user })
   }
   changeCategory = (category) => {
     this.setState({ currentCategory: category.categoryName })
@@ -49,6 +95,7 @@ export default class App extends Component {
     }
     this.setState({ cartItems: newCart })
     alertify.success(product.productName + ' added to cart', 2)
+    console.log(this.state.orders)
   }
   removeFromCart = (product) => {
     product.quantity -= 1
@@ -86,6 +133,8 @@ export default class App extends Component {
         <Navbar
           cartItems={this.state.cartItems}
           removeFromCart={this.removeFromCart}
+          user={this.state.currentUser}
+          Logout={this.Logout}
         />
         <Container>
           <Row>
@@ -114,13 +163,29 @@ export default class App extends Component {
               />
               <Route path="/ProductAdd" element={<ProductAdd />} />
               <Route path="/LoginRegister" element={<LoginRegister />} />
-              <Route path="/Login" element={<Login />} />
+              <Route
+                path="/Login"
+                element={<Login changeUser={this.changeUser} />}
+              />
+              <Route path="/Register" element={<Register />} />
+              <Route
+                path="/Orders"
+                element={
+                  <Orders
+                    orders={this.state.orders}
+                    user={this.state.currentUser}
+                  />
+                }
+              />
               <Route
                 path="/Cart"
                 element={
                   <Cart
                     cartProducts={this.state.cartItems}
                     removeFromCart={this.removeFromCart}
+                    addToOrders={this.addToOrders}
+                    user={this.state.currentUser}
+                    ClearCartItems={this.ClearCartItems}
                   />
                 }
               />

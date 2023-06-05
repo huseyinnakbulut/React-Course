@@ -3,7 +3,7 @@ import { Table, Button, Row, Col } from 'reactstrap'
 export default class Cart extends Component {
   render() {
     const { cartProducts } = this.props
-
+    const { user } = this.props
     return (
       <div>
         <Row>
@@ -45,8 +45,10 @@ export default class Cart extends Component {
           <Col sm="6">
             <Button
               color="success"
-              //style={{ marginRight: '10px', backgroundColor: 'red' }}
-              //onClick={() => this.props.removeFromCart(cartItem)}
+              onClick={() => {
+                this.props.addToOrders(cartProducts, user)
+                this.props.ClearCartItems()
+              }}
             >
               Sepeti Onayla
             </Button>
