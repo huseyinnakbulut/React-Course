@@ -2,56 +2,53 @@
   "users": [
     {
       "id": 1,
-      "userMail": "deneme@gmail.com",
-      "userPassword": "123",
-      "userName": "Hüseyin Akbulut",
-      "userRole": "Admin",
-      "userImage": "https://static.vecteezy.com/system/resources/previews/008/442/086/original/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg"
+      "name": "Hüseyin Akbulut",
+      "email": "deneme@gmail.com",
+      "password": "123",
+      "role": "Admin",
+      "adress": "İstanbul"
     },
     {
       "id": 2,
-      "userMail": "",
-      "userPassword": "",
-      "userName": "",
-      "userRole": "Customer",
-      "userImage": "blob:http://localhost:3001/d7f490cf-d0e0-4c09-b122-c8b084014463"
+      "name": "deneme2",
+      "email": "deneme2@gmail.com",
+      "password": "123",
+      "role": "Customer",
+      "adress": "İstanbul"
     },
     {
       "id": 3,
-      "userMail": "adgadg@adbga",
-      "userPassword": "adgdagfad",
-      "userName": "adgad",
-      "userRole": "Customer",
-      "userImage": "blob:http://localhost:3001/899e4436-ef5d-416f-aea6-c201e962b7d8"
+      "name": "deneme3",
+      "email": "deneme3@gmail.com",
+      "password": "123",
+      "role": "Customer",
+      "adress": "İstanbul"
     },
     {
       "id": 4,
-      "userMail": "merhaba@123",
-      "userPassword": "123",
-      "userName": "deneme",
-      "userRole": "Customer",
-      "userImage": "blob:http://localhost:3001/72e98617-4bdf-4a0b-8fbb-66a59aea1029"
+      "name": "deneme4",
+      "email": "deneme4@gmail.com",
+      "password": "123",
+      "role": "Customer",
+      "adress": "İstanbul"
     },
     {
       "id": 5,
-      "userMail": "merhaba@hotmail.com",
-      "userPassword": "123",
-      "userName": "merhaba",
-      "userRole": "Customer",
-      "userImage": "blob:http://localhost:3001/d643578a-a452-4796-9c0f-e7b3f9cd942b"
+      "name": "deneme5",
+      "email": "deneme5@gmail.com",
+      "password": "123",
+      "role": "Customer",
+      "adress": "İstanbul"
     }
   ],
   "products": [
     {
       "id": 1,
       "categoryId": 2,
-      "productName": "Chaiy",
+      "productName": "Chai",
       "image": "images/product.jpg",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac sagittis odio.",
-      "price": 45,
-      "unitPrice": "2324",
-      "quantityPerUnit": "2424",
-      "unitsInStock": "244224"
+      "price": 45
     },
     {
       "id": 2,
@@ -292,37 +289,6 @@
       "image": "images/product.jpg",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac sagittis odio.",
       "price": 45
-    },
-    {
-      "productName": "Yeni",
-      "categoryId": 2,
-      "unitPrice": "24",
-      "quantityPerUnit": "24",
-      "unitsInStock": "24",
-      "id": 33
-    },
-    {
-      "productName": "Deneme",
-      "categoryId": 1,
-      "unitPrice": "22",
-      "quantityPerUnit": "22",
-      "unitsInStock": "22",
-      "id": 34
-    },
-    {
-      "productName": "deneme",
-      "categoryId": 1,
-      "unitPrice": "33",
-      "quantityPerUnit": "33",
-      "id": 35
-    },
-    {
-      "productName": "deneme",
-      "categoryId": 1,
-      "unitPrice": "23223",
-      "quantityPerUnit": "234",
-      "unitsInStock": "324",
-      "id": 36
     }
   ],
   "categories": [
