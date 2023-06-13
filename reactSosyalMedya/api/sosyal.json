@@ -1,0 +1,68 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "categoryName": "Haberler"
+    },
+    {
+      "id": 2,
+      "categoryName": "Videolar"
+    },
+    {
+      "id": 3,
+      "categoryName": "Resimler"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "author": "Ahmet",
+      "content": "Merhaba herkese!",
+      "image": "",
+      "video": "",
+      "categoryId": 1
+    },
+    {
+      "id": 2,
+      "author": "Ayşe",
+      "content": "Tatilimin keyfini çıkarıyorum!",
+      "image": "",
+      "video": "",
+      "categoryId": 2
+    },
+    {
+      "id": 3,
+      "author": "Mehmet",
+      "content": "Yeni film çıkışına çok heyecanlıyım!",
+      "image": "",
+      "video": "",
+      "categoryId": 3
+    },
+    {
+      "categoryId": 2,
+      "content": "1 NUMARALARI KATEGORİ İÇERİĞİ VİDEOLU",
+      "video": "ADGDAGADGAD",
+      "id": 4
+    },
+    {
+      "categoryId": 2,
+      "content": "1 NUMARALARI KATEGORİ İÇERİĞİ VİDEOLU",
+      "video": "ADGDAGADGAD",
+      "id": 5
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "userMail": "deneme@gmail.com",
+      "userPassword": "123",
+      "userName": "Hüseyin Akbulut"
+    },
+    {
+      "id": 2,
+      "userMail": "deneme2@gmail.com",
+      "userPassword": "123",
+      "userName": "İsmail Yazıcı"
+    }
+  ]
+}
