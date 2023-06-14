@@ -49,12 +49,20 @@ export function handleError(error) {
   console.error('Bir hata oluştu')
   throw error
 }
+export function getPosts() {
+  return function (dispatch) {
+    let url = 'http://localhost:3000/posts'
+    return fetch(url)
+      .then((response) => response.json())
+      .then((result) => dispatch(getPostSuccess(result)))
+  }
+}
 
-export function getPosts(categoryId) {
+export function getPostsWithCategory(categoryId) {
   return function (dispatch) {
     let url = 'http://localhost:3000/posts'
     if (categoryId) {
-      url = url + '?categoryId=' + categoryId
+      url += '?categoryId=' + categoryId
     }
     return fetch(url)
       .then((response) => response.json())

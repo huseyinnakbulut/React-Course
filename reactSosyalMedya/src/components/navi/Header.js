@@ -6,11 +6,14 @@ import {
   Nav,
   NavItem,
   NavLink,
+  Button,
 } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faUser } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as userAction from '../../redux/actions/userActions'
 class Header extends Component {
   constructor(props) {
     super(props)
@@ -29,128 +32,8 @@ class Header extends Component {
   renderLogin() {
     return (
       <Navbar color="dark" dark expand="md">
-        <NavbarBrand>
-          <FontAwesomeIcon icon={faHome} />{' '}
-          <Link
-            style={{ textDecoration: 'none', color: 'white' }}
-            to={'/dahboard/post'}
-          >
-            Postlar
-          </Link>
-        </NavbarBrand>
         <NavbarToggler onClick={this.toggle} />
-        <NavItem>
-          <NavLink>
-            <Link to="/addpost">Post ekle</Link>
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink>
-            <FontAwesomeIcon icon={faUser} />
-            <Link
-              style={{ textDecoration: 'none', color: 'white' }}
-              to={'/postAdd'}
-            >
-              Normal Postlar
-            </Link>
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink>
-            <FontAwesomeIcon icon={faUser} />
-            <Link
-              style={{ textDecoration: 'none', color: 'white' }}
-              to={'/postAdd'}
-            >
-              Video Postlar
-            </Link>
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink>
-            <FontAwesomeIcon icon={faUser} />
-            <Link
-              style={{ textDecoration: 'none', color: 'white' }}
-              to={'/postAdd'}
-            >
-              Resim Postlar
-            </Link>
-          </NavLink>
-        </NavItem>
-        <Nav className="mr-auto" navbar>
-          <NavItem>
-            <NavLink>
-              <FontAwesomeIcon icon={faUser} />
-              <Link
-                style={{ textDecoration: 'none', color: 'white' }}
-                to={'/postAdd'}
-              >
-                Post Ekle
-              </Link>
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink>
-              <FontAwesomeIcon icon={faUser} />
-              <Link
-                style={{ textDecoration: 'none', color: 'white' }}
-                to={'/logout'}
-              >
-                Çıkış Yap
-              </Link>
-            </NavLink>
-          </NavItem>
-        </Nav>
-      </Navbar>
-    )
-  }
 
-  renderLogout() {
-    return (
-      <Navbar color="dark" dark expand="md">
-        <NavbarBrand>
-          <FontAwesomeIcon icon={faHome} />{' '}
-          <Link
-            style={{ textDecoration: 'none', color: 'white' }}
-            to={'/dahboard/post'}
-          >
-            Postlar
-          </Link>
-        </NavbarBrand>
-        <NavbarToggler onClick={this.toggle} />
-        <NavItem>
-          <NavLink>
-            <FontAwesomeIcon icon={faUser} />
-            <Link
-              style={{ textDecoration: 'none', color: 'white' }}
-              to={'/postAdd'}
-            >
-              Normal Postlar
-            </Link>
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink>
-            <FontAwesomeIcon icon={faUser} />
-            <Link
-              style={{ textDecoration: 'none', color: 'white' }}
-              to={'/postAdd'}
-            >
-              Video Postlar
-            </Link>
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink>
-            <FontAwesomeIcon icon={faUser} />
-            <Link
-              style={{ textDecoration: 'none', color: 'white' }}
-              to={'/postAdd'}
-            >
-              Resim Postlar
-            </Link>
-          </NavLink>
-        </NavItem>
         <Nav className="mr-auto" navbar>
           <NavItem>
             <NavLink>
@@ -168,14 +51,87 @@ class Header extends Component {
     )
   }
 
+  renderLogout() {
+    return (
+      <Navbar color="dark" dark expand="md">
+        <NavbarToggler onClick={this.toggle} />
+        <NavItem>
+          <NavLink>
+            <Link to="/postAdd">Post ekle</Link>
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink>
+            <FontAwesomeIcon icon={faUser} />
+            <Link
+              style={{ textDecoration: 'none', color: 'white' }}
+              to={'/normalposts'}
+            >
+              Normal Postlar
+            </Link>
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink>
+            <FontAwesomeIcon icon={faUser} />
+            <Link
+              style={{ textDecoration: 'none', color: 'white' }}
+              to={'/videoposts'}
+            >
+              Video Postlar
+            </Link>
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink>
+            <FontAwesomeIcon icon={faUser} />
+            <Link
+              style={{ textDecoration: 'none', color: 'white' }}
+              to={'/imageposts'}
+            >
+              Resim Postlar
+            </Link>
+          </NavLink>
+        </NavItem>
+        <Nav className="mr-auto" navbar>
+          <NavItem>
+            <NavLink>
+              <FontAwesomeIcon icon={faUser} />
+              <Link
+                style={{ textDecoration: 'none', color: 'white' }}
+                onClick={() => this.chan()}
+                to={'/login'}
+              >
+                Çıkış Yap
+              </Link>
+            </NavLink>
+          </NavItem>
+        </Nav>
+      </Navbar>
+    )
+  }
+  chan = () => {
+    this.props.actions.IsOnlineTrue(false)
+  }
   render() {
-    return <div>{this.renderLogin()}</div>
+    return (
+      <div>
+        {this.props.IsOnline ? this.renderLogout() : this.renderLogin()}
+      </div>
+    )
   }
 }
-
 function mapStateToProps(state) {
   return {
-    currentUser: state.loginUserReducer,
+    IsOnline: state.IsOnlineReducer,
+    currentUser: state.loginReducer,
   }
 }
-export default connect(mapStateToProps)(Header)
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: {
+      IsOnlineTrue: bindActionCreators(userAction.IsOnlineTrue, dispatch),
+    },
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Header)

@@ -1,33 +1,12 @@
 import React, { Component } from 'react'
-import './Deneme.css'
-import { Button } from 'reactstrap'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as userActions from '../../redux/actions/userActions'
-
-//import * as userActions from '../../redux/actions/userActions'
+import * as loginAction from '../../redux/actions/userActions'
+import { Button } from 'reactstrap'
+import { Link } from 'react-router-dom'
+import './Deneme.css'
 
 class Login extends Component {
-  state = {
-    user: {
-      email: '',
-      password: '',
-    },
-    address: '/login',
-  }
-  componentDidMount() {
-    this.props.actions.getUsers()
-  }
-  loginUser = () => {
-    this.props.actions.loginUser(this.state.user)
-    if (this.props.currentUser.length > 0) {
-      return true
-    } else {
-      return false
-    }
-  }
-
   render() {
     return (
       <div className="wrapper fadeInDown">
@@ -55,12 +34,10 @@ class Login extends Component {
               id="login"
               className="fadeIn second"
               name="login"
-              placeholder="login"
-              onChange={(e) => {
-                this.setState((prevState) => ({
-                  user: { ...prevState.user, email: e.target.value },
-                }))
-              }}
+              placeholder="email"
+              onChange={(e) =>
+                this.props.actions.currentUsername(e.target.value)
+              }
             />
             <input
               type="password"
@@ -68,62 +45,56 @@ class Login extends Component {
               className="fadeIn third"
               name="login"
               placeholder="password"
-              onChange={(e) => {
-                this.setState((prevState) => ({
-                  user: { ...prevState.user, password: e.target.value },
-                }))
-              }}
+              onChange={(e) =>
+                this.props.actions.currentPassword(e.target.value)
+              }
             />
           </form>
           <Button
             className="fadeIn fourth"
             onClick={() =>
-              this.loginUser()
-                ? this.setState({ address: '/' })
-                : alert('Kullanıcı adı veya şifre hatalı')
+              this.props.actions.getUsernamePassword(
+                this.props.currentUsername,
+                this.props.currentPassword
+              )
             }
           >
             <Link
+              to={'/normalposts'}
               style={{ textDecoration: 'none', color: 'white' }}
-              to={this.state.address}
             >
               Giriş yap
             </Link>
           </Button>
-          {/* <Button style={{ marginBottom: '10px' }} className="fadeIn fifth">
-            <Link
-              style={{ textDecoration: 'none', color: 'white' }}
-              to={'/register'}
-            >
-              Hesabınız Yok mu?
-            </Link>
-          </Button> */}
-          {/* <Link
-              style={{ textDecoration: 'none', color: 'white' }}
-              to={'/api/register'}
-            >
-              Hesabınız Yok mu?
-            </Link> */}
         </div>
       </div>
     )
   }
 }
-
 function mapStateToProps(state) {
   return {
-    users: state.userReducer,
-    currentUser: state.userReducer,
+    posts: state.loginReducer,
+    currentUsername: state.currentUsernameReducer,
+    currentPassword: state.currentPasswordReducer,
   }
 }
-
 function mapDispatchToProps(dispatch) {
   return {
     actions: {
-      loginUser: bindActionCreators(userActions.loginUser, dispatch),
-      getUsers: bindActionCreators(userActions.getUsers, dispatch),
+      getUsernamePassword: bindActionCreators(
+        loginAction.getUsernamePassword,
+        dispatch
+      ),
+      currentUsername: bindActionCreators(
+        loginAction.currentUsername,
+        dispatch
+      ),
+      currentPassword: bindActionCreators(
+        loginAction.currentPassword,
+        dispatch
+      ),
     },
   }
 }
-
 export default connect(mapStateToProps, mapDispatchToProps)(Login)
+//Change user ve password u onchange de tutup clickten gönderip kontrol edilecek.

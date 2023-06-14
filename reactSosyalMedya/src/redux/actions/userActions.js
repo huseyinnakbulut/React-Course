@@ -1,17 +1,44 @@
-import * as actionTypes from './actionTypes'
+import * as types from './actionTypes'
 
-export function loginUser(user) {
-  return { type: actionTypes.LOGIN_USER_SUCCESS, payload: { user } }
+export function getUsernamePasswordSuccess(result) {
+  return {
+    type: types.GET_USERNAME_PASSWORD_SUCCESS,
+    payload: result,
+  }
 }
-export function getUsersSuccess(users) {
-  return { type: actionTypes.GET_USERS_SUCCESS, payload: users }
+export function IsOnlineTrue(status) {
+  return {
+    type: types.IS_ONLINE,
+    payload: status,
+  }
 }
-
-export function getUsers() {
+export function getUsernamePassword(username, password) {
   return function (dispatch) {
     let url = 'http://localhost:3000/users'
-    return fetch(url)
+    fetch(url)
       .then((response) => response.json())
-      .then((result) => dispatch(getUsersSuccess(result)))
+      .then((data) => {
+        var user = data.find(
+          (x) => x.userMail === username && x.userPassword === password
+        )
+        if (user) {
+          dispatch(getUsernamePasswordSuccess(user))
+          dispatch(IsOnlineTrue(true))
+        } else {
+          console.log('User not found')
+        }
+      })
+  }
+}
+export function currentUsername(username) {
+  return {
+    type: types.CURRENT_USERNAME,
+    payload: username,
+  }
+}
+export function currentPassword(password) {
+  return {
+    type: types.CURRENT_PASSWORD,
+    payload: password,
   }
 }

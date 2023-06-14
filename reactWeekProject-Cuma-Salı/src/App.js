@@ -29,8 +29,8 @@ export default class App extends Component {
     orders: [],
     orderid: 1,
   }
-  Logout=()=>{
-        var tempUser= {
+  Logout = () => {
+    var tempUser = {
       id: 0,
       userMail: '',
       userPassword: '',
@@ -39,7 +39,6 @@ export default class App extends Component {
       userImage: '',
     }
     this.setState({ currentUser: tempUser })
-
   }
   ClearCartItems = () => {
     this.setState({ cartItems: [] })

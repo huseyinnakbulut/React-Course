@@ -23,32 +23,22 @@
       "categoryId": 1
     },
     {
-      "id": 2,
-      "author": "Ayşe",
-      "content": "Tatilimin keyfini çıkarıyorum!",
-      "image": "",
-      "video": "",
-      "categoryId": 2
+      "content": "Resim Denemesi",
+      "categoryId": 3,
+      "image": "https://cdn.dsmcdn.com/ty517/product/media/images/20220827/13/166320893/230410758/1/1_org_zoom.jpg",
+      "id": 6
     },
     {
-      "id": 3,
-      "author": "Mehmet",
-      "content": "Yeni film çıkışına çok heyecanlıyım!",
-      "image": "",
-      "video": "",
-      "categoryId": 3
-    },
-    {
+      "content": "tr",
       "categoryId": 2,
-      "content": "1 NUMARALARI KATEGORİ İÇERİĞİ VİDEOLU",
-      "video": "ADGDAGADGAD",
-      "id": 4
+      "video": "https://youtu.be/z7yqtW4Isec",
+      "id": 7
     },
     {
+      "content": "human",
       "categoryId": 2,
-      "content": "1 NUMARALARI KATEGORİ İÇERİĞİ VİDEOLU",
-      "video": "ADGDAGADGAD",
-      "id": 5
+      "video": "https://www.youtube.com/watch?v=L3wKzyIN1yk&ab_channel=RagnBoneManVEVO",
+      "id": 8
     }
   ],
   "users": [

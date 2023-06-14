@@ -8,7 +8,7 @@ const PostDetail = ({ categories, post, onSave, onChange, errors }) => {
       <h2>{post.id ? 'Güncelle' : 'Ekle'}</h2>
       <TextInput
         name="content"
-        label="Ppst Content"
+        label="POST Content"
         value={post.content}
         onChange={onChange}
       />

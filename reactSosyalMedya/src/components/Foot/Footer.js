@@ -12,7 +12,12 @@ export default class footer extends Component {
   render() {
     return (
       <MDBFooter
-        style={{ position: 'fixed', bottom: 0 }}
+        style={{
+          position: 'fixed',
+          bottom: 0,
+
+          padding: '10px 10px 0px 10px',
+        }}
         className="text-center"
         color="white"
         bgColor="dark"
