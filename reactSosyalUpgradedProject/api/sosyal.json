@@ -1,0 +1,58 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "categoryName": "Haberler"
+    },
+    {
+      "id": 2,
+      "categoryName": "Videolar"
+    },
+    {
+      "id": 3,
+      "categoryName": "Resimler"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "author": "Ahmet",
+      "content": "Merhaba herkese!",
+      "image": "",
+      "video": "",
+      "categoryId": 1
+    },
+    {
+      "content": "Resim Denemesi",
+      "categoryId": 3,
+      "image": "https://cdn.dsmcdn.com/ty517/product/media/images/20220827/13/166320893/230410758/1/1_org_zoom.jpg",
+      "id": 6
+    },
+    {
+      "content": "tr",
+      "categoryId": 2,
+      "video": "https://youtu.be/z7yqtW4Isec",
+      "id": 7
+    },
+    {
+      "content": "human",
+      "categoryId": 2,
+      "video": "https://www.youtube.com/watch?v=L3wKzyIN1yk&ab_channel=RagnBoneManVEVO",
+      "id": 8
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "userMail": "deneme@gmail.com",
+      "userPassword": "123",
+      "userName": "Hüseyin Akbulut"
+    },
+    {
+      "id": 2,
+      "userMail": "deneme2@gmail.com",
+      "userPassword": "123",
+      "userName": "İsmail Yazıcı"
+    }
+  ]
+}
